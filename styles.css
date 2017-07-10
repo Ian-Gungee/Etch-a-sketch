@@ -27,7 +27,7 @@ body {
 }
 
 /* Canvas elements */
-#canvas {
+.canvas {
     margin: 30px 20px auto 20px;
     border: solid;
     border-width: 1px;
@@ -37,8 +37,8 @@ body {
 .pixel {
     position: relative;
     opacity: 0;
-    width:100px;
-    height:100px;
+    width:10px;
+    height:10px;
     /*border: solid;
     border-width: 1px;*/
     background-color: black;
