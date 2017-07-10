@@ -54,10 +54,12 @@ function drawCanvas() {
 
 /* Refreshes screen and draws a new canvas */
 function submit(){
-    pX = 0;
-    pY = 0;
-    $('.canvas > .pixel').remove();
-    drawCanvas();
-    alert("Rendering canvas: " + x + "x" + y);
+    var prompt = confirm("Rendering canvas: " + x + "x" + y + ". This will erase your current work. Ok?");
+    if (prompt == true) {
+        pX = 0;
+        pY = 0;
+        $('.canvas > .pixel').remove();
+        drawCanvas();
+    }
 
 }
