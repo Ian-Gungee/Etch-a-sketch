@@ -1,6 +1,37 @@
 body {
     text-align: center;
     font-family: Verdana, Arial;
+    background-color: #ddd;
+}
+
+/* Input at top of page */
+.textInput {
+    width: 100px;
+    padding: 4px 10px;
+    border: solid;
+    border-width: 1px;
+    border-color: #444;
+    border-radius: 3px;
+    box-shadow: 1px 3px 5px 0px #aaa; 
+}
+
+.submitInput {
+    width: 80px;
+    height: 25px;
+    margin: 0 10px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    background-color: lightgray;
+    box-shadow: 1px 3px 3px 0px grey; 
+}
+
+/* Canvas elements */
+#canvas {
+    margin: 30px 20px auto 20px;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
 }
 
 .pixel {
