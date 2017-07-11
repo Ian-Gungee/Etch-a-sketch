@@ -1,25 +1,29 @@
-var pixelSize = 10;
+/* Using jQuery 3.2.1 */
+var pixelSize = 50;
 var x;
 var y;
 var pX = 0;
 var pY = 0;
+var newDiv;
+var canvas = document.getElementsByClassName('canvas');
+var pixels = document.getElementsByClassName('pixel');
 var inputX = document.getElementById('width');
 var inputY = document.getElementById('height');
-var rad = 1;
 
 $(document).ready(function() {
     /* Once page has loaded */
     console.log('Page Loaded')
 
-    /* Sets text inputs to default x & y values */
-    x = 10;
-    y = 10;
-
+    /* Sets defaults */
+    x = 20;
+    y = 20;
     inputX.value = x;
     inputY.value = y;
 
+    /* Initializes canvas (See below) */
     drawCanvas();
-
+    $('.pixel').css('height', pixelSize+'px');
+    $('.pixel').css('width', pixelSize+'px');
 
     /* Activates and highlights pixels when moused over*/
     $('.pixel').mouseenter(function(){
@@ -42,8 +46,6 @@ function submit(){
     if (prompt == true) {
         pX = 0;
         pY = 0;
-        console.log("x: "+x);
-        console.log("y: "+y);
         $('.canvas > .pixel').remove();
         drawCanvas();
     }
@@ -51,20 +53,19 @@ function submit(){
 }
 
 
-var newDiv;
-var canvas = document.getElementsByClassName('canvas');
-var pixels = document.getElementsByClassName('pixel');
 
 /* Nested for loops that draw pixels one by one, starting from top to bottom, then left to right */
 function drawCanvas() {
+    $('.canvas').css('width', (($(window).width())-500).toString()+'px');
+    console.log($('.canvas').width());
+    console.log($(window).width());
+    pixelSize = ($('.canvas').width())/y-2;
     for (q=0; q < x; q++) {
 
         for (w=0; w < y; w++) {
             newDiv = document.createElement('div');
             newDiv.className = 'pixel';
             newDiv.id = 'p' + pX + pY;
-            newDiv.style.left = ((pX*pixelSize).toString())+"px";
-            newDiv.style.top = ((pY*pixelSize).toString())+"px";
             console.log("drawing: "+newDiv.id);
             $('.canvas').append(newDiv);
             pY += 1;
