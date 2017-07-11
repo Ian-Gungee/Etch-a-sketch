@@ -15,8 +15,8 @@ $(document).ready(function() {
     console.log('Page Loaded')
 
     /* Sets defaults */
-    x = 20;
-    y = 20;
+    x = 7;
+    y = 3;
     inputX.value = x;
     inputY.value = y;
 
@@ -56,10 +56,16 @@ function submit(){
 
 /* Nested for loops that draw pixels one by one, starting from top to bottom, then left to right */
 function drawCanvas() {
-    $('.canvas').css('width', (($(window).width())-500).toString()+'px');
-    console.log($('.canvas').width());
-    console.log($(window).width());
-    pixelSize = ($('.canvas').width())/y-2;
+    if (y>x)
+    {
+        pixelSize = ($(window).height())/2/y;
+        $('.canvas').css('width', (pixelSize*x).toString()+'px');
+
+    } else {
+        pixelSize = ($(window).width())/2/x;
+        $('.canvas').css('width', (pixelSize*x).toString()+'px');
+    }
+
     for (q=0; q < x; q++) {
 
         for (w=0; w < y; w++) {

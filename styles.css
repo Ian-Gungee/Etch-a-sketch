@@ -2,7 +2,6 @@ body {
     text-align: center;
     font-family: Verdana, Arial;
     background-color: #ddd;
-    margin: 50px auto;
     border: hidden;
     border: 50px auto;
 }
@@ -11,7 +10,7 @@ body {
 .textInput {
     position: inherit;
     width: 100px;
-    padding: 4px 10px;
+    padding: 4px 20px;
     border: solid;
     border-width: 1px;
     border-color: #444;
@@ -35,7 +34,7 @@ body {
     top: 50px;
     display: inline-block;
     background-color: white;
-    margin: 70px;
+    margin: 70px 100px;
     border: solid;
     border-width: 1px;
     border-color: black;
@@ -45,9 +44,8 @@ body {
     width: 10px;
     height: 10px;
     float: left;
-    opacity: 0;
-    border: solid;
+    opacity: 1;
+    border: none;
     border-width: 1px;
-    border-color: black;
-    background-color: white;
+    border-color: white;
 }
