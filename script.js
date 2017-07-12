@@ -21,33 +21,34 @@ $(document).ready(function() {
     inputY.value = y;
 
     /* Initializes canvas (See below) */
-    drawCanvas();
-    $('.pixel').css('height', pixelSize+'px');
-    $('.pixel').css('width', pixelSize+'px');
+    DrawCanvas();
+    PaintPixel();
+});
 
     /* Activates and highlights pixels when moused over*/
+    function PaintPixel(){
     $('.pixel').mouseenter(function(){
-        $(this).fadeTo(0, 1);
+        $(this).css('opacity', 1);
         $(this).css('background-color', 'rgb(70,70,70)');
     });
     /* Returns unhighlighted pixels to black */
     $('.pixel').mouseleave(function(){
         $(this).css('background-color', 'black');
     });
-
-});
+}
 
 
 /* Refreshes screen and draws a new canvas */
-function submit(){
+function Submit(){
         x = inputX.value;
         y = inputY.value;
     var prompt = confirm("Rendering canvas: " + x + "x" + y + ". This will erase your current work. Ok?");
     if (prompt == true) {
         pX = 0;
         pY = 0;
-        $('.canvas > .pixel').remove();
-        drawCanvas();
+        $('.canvas').empty();
+        DrawCanvas();
+        PaintPixel();
     }
 
 }
@@ -55,7 +56,7 @@ function submit(){
 
 
 /* Nested for loops that draw pixels one by one, starting from top to bottom, then left to right */
-function drawCanvas() {
+function DrawCanvas() {
     if (y>x)
     {
         pixelSize = ($(window).height())/2/y;
@@ -82,5 +83,7 @@ function drawCanvas() {
         pX += 1;
         pY = 0;
     }
+    $('.pixel').css('height', pixelSize+'px');
+    $('.pixel').css('width', pixelSize+'px');
     console.log('all pixels rendered');
 }
